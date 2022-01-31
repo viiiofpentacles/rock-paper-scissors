@@ -14,8 +14,6 @@ let computerScore = 0;
 
 function playRound(playerSelection,computerSelection){
 
-    playerSelection = window.prompt("Type rock, paper, or scissors.");
-    playerSelection = playerSelection.toLowerCase();
     computerSelection = computerPlay(actions);
 
     if (playerSelection=="rock"&&computerSelection=="paper"){return [computerScore++, console.log("You lose! Paper beats rock.")];} 
@@ -31,25 +29,33 @@ function playRound(playerSelection,computerSelection){
 
 }
 
+const buttonContainer = document.querySelector('#buttonContainer');
 
-function game(){
+const rockButton = document.createElement('button');
+    rockButton.textContent='Rock';
+    rockButton.addEventListener('click',() => {
+        playerSelection="rock";
+        playRound();
+    });
 
-    let i=0;
-    for (let i=0; i < 5; i++) {
-           playRound(playerSelection, computerSelection);
-           if(i==4){
-            console.log("Game Over!");
-            console.log("Player Score: " + playerScore);
-            console.log("Computer Score: " + computerScore);
-            
-            if (playerScore>computerScore){
-                console.log("You win!")
-            } else {
-                console.log("You lose!")
-            }
-        }
-    }
-}
+buttonContainer.appendChild(rockButton);
 
-console.log(game())
-   
+const paperButton = document.createElement('button');
+    paperButton.textContent='Paper';
+    paperButton.addEventListener('click',() => {
+        playerSelection="paper";
+        playRound();
+    });
+
+buttonContainer.appendChild(paperButton);
+
+const scissorsButton = document.createElement('button');
+    scissorsButton.textContent='Scissors';
+    scissorsButton.addEventListener('click',() => {
+        playerSelection="scissors";
+        playRound();
+    });
+
+buttonContainer.appendChild(scissorsButton);
+
+
