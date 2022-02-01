@@ -27,12 +27,12 @@ function playRound(playerSelection,computerSelection){
 
     if (playerSelection=="rock"&&computerSelection=="paper"){results= [computerScore++, "You lose! Paper beats rock."];} 
     else if (playerSelection=="rock"&& computerSelection=="scissors"){results= [playerScore++, "You win! Rock beats scissors."];}
-    else if (playerSelection=="rock"&&computerSelection=="rock"){results= [ ,"It's a draw!"];}
-    else if (playerSelection=="paper"&&computerSelection=="paper"){results= [ ,"It's a draw!"];}
+    else if (playerSelection=="rock"&&computerSelection=="rock"){results= [ ,"It's a draw! Please try again."];}
+    else if (playerSelection=="paper"&&computerSelection=="paper"){results= [ ,"It's a draw! Please try again."];}
     else if (playerSelection=="paper"&&computerSelection=="scissors"){results= [computerScore++, "You lose! Scissors beats paper."];}
     else if (playerSelection=="paper"&&computerSelection=="rock"){results= [playerScore++, "You win! Paper beats rock."];}
     else if (playerSelection=="scissors"&&computerSelection=="paper"){results= [playerScore++, "You win! Scissors beats paper."];}
-    else if (playerSelection=="scissors"&&computerSelection=="scissors"){results= [ ,"It's a draw!"];}
+    else if (playerSelection=="scissors"&&computerSelection=="scissors"){results= [ ,"It's a draw! Please try again."];}
     else if (playerSelection=="scissors"&&computerSelection=="rock"){results= [computerScore++, "You lose! Rock beats scissors."];}
     else {results= [ ,"Error! Please try again."];};
     
@@ -87,7 +87,28 @@ buttonContainer.appendChild(scissorsButton);
 
 
         
-    
+const body = document.querySelector('body');
+    body.style.display='flex';
+    body.style.flexDirection='column';
+    body.style.justifyContent='center';
+    body.style.alignItems='center';
+    body.style.padding='10px';
+    body.style.backgroundColor= '#CCA283';
 
-    
-        
+   
+rockButton.style.margin = '8px';
+rockButton.style.backgroundColor='#EAD9CD'
+rockButton.style.color='#685343';
+rockButton.style.fontWeight = 'bold';
+rockButton.style.borderRadius ='6px';
+paperButton.style.margin = '8px';
+paperButton.style.backgroundColor='#EAD9CD'
+paperButton.style.color='#685343';
+paperButton.style.borderRadius ='6px';
+paperButton.style.fontWeight = 'bold';
+scissorsButton.style.margin = '8px';
+scissorsButton.style.backgroundColor='#EAD9CD'
+scissorsButton.style.color='#685343';
+scissorsButton.style.borderRadius ='6px';
+scissorsButton.style.fontWeight = 'bold';
+
