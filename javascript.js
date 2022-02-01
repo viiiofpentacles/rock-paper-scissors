@@ -32,19 +32,27 @@ function playRound(playerSelection,computerSelection){
     else if (playerSelection=="paper"&&computerSelection=="scissors"){results= [computerScore++, "You lose! Scissors beats paper."];}
     else if (playerSelection=="paper"&&computerSelection=="rock"){results= [playerScore++, "You win! Paper beats rock."];}
     else if (playerSelection=="scissors"&&computerSelection=="paper"){results= [playerScore++, "You win! Scissors beats paper."];}
-    else if (playerSelection=="scissors"&&computerSelection=="scssors"){results= [ ,"It's a draw!"];}
+    else if (playerSelection=="scissors"&&computerSelection=="scissors"){results= [ ,"It's a draw!"];}
     else if (playerSelection=="scissors"&&computerSelection=="rock"){results= [computerScore++, "You lose! Rock beats scissors."];}
     else {results= [ ,"Error! Please try again."];};
     
     resultsDisplay.textContent=results[1];
     playerRunningScore.textContent=`Player: ${playerScore}`;
     computerRunningScore.textContent=`Computer: ${computerScore}`;
+    console.log(results)
     
     if(playerScore == 5 || computerScore == 5){
-        if(playerScore>computerScore){
-            finalScore.textContent= "You win!";
-        }else if(computerScore>playerScore){
-            finalScore.textContent="You lose!";
+        if(playerScore>computerScore&&(playerScore<=5||computerScore<=5)){
+            finalScore.textContent= "You win! Refresh the browser to try again.";
+            rockButton.disabled=true;
+            paperButton.disabled=true;
+            scissorsButton.disabled=true;
+        }else if(computerScore>playerScore&&(playerScore<=5||computerScore<=5)){
+            finalScore.textContent="You lose! Refresh the browser to try again.";
+            buttonContainer.childNodes.disabled=true;
+            rockButton.disabled=true;
+            paperButton.disabled=true;
+            scissorsButton.disabled=true;
         }else{finalScore.textContent="Error! Please refresh the browser to try again.";
     }
 }
